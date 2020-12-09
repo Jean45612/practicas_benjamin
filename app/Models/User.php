@@ -40,4 +40,14 @@ class User extends \TCG\Voyager\Models\User
     protected $casts = [
         'email_verified_at' => 'datetime',
     ];
+
+    public function scopeAlumno($query)
+    {
+        return $query->where('role_id', 3);
+    }
+
+    public function scopeAsesor($query)
+    {
+        return $query->where('role_id', 4);
+    }
 }

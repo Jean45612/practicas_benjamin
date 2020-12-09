@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 09-12-2020 a las 23:24:31
+-- Tiempo de generación: 10-12-2020 a las 00:28:19
 -- Versión del servidor: 10.4.13-MariaDB
 -- Versión de PHP: 7.4.7
 
@@ -36,11 +36,17 @@ CREATE TABLE `alumnos` (
   `dni` char(8) COLLATE utf8mb4_unicode_ci NOT NULL,
   `periodo_egreso` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
   `celular` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
-  `email` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
   `user_id` bigint(20) UNSIGNED NOT NULL,
   `created_at` timestamp NULL DEFAULT NULL,
   `updated_at` timestamp NULL DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+--
+-- Volcado de datos para la tabla `alumnos`
+--
+
+INSERT INTO `alumnos` (`id`, `nombres`, `apellido_paterno`, `apellido_materno`, `modalidad`, `dni`, `periodo_egreso`, `celular`, `user_id`, `created_at`, `updated_at`) VALUES
+(2, 'alumno1', 'apellido pat', 'materno', 'Modal', '12345678', 'periodo', '1234', 2, '2020-12-09 23:06:04', '2020-12-09 23:06:04');
 
 -- --------------------------------------------------------
 
@@ -60,6 +66,13 @@ CREATE TABLE `asesores` (
   `created_at` timestamp NULL DEFAULT NULL,
   `updated_at` timestamp NULL DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+--
+-- Volcado de datos para la tabla `asesores`
+--
+
+INSERT INTO `asesores` (`id`, `nombres`, `apellido_paterno`, `apellido_materno`, `filial`, `facultad`, `escuela`, `user_id`, `created_at`, `updated_at`) VALUES
+(1, 'asesor', 'apellido pat', 'materno', 'filial', 'ingenier', 'sist', 3, '2020-12-09 23:23:58', '2020-12-09 23:23:58');
 
 -- --------------------------------------------------------
 
@@ -136,17 +149,16 @@ CREATE TABLE `data_rows` (
 --
 
 INSERT INTO `data_rows` (`id`, `data_type_id`, `field`, `type`, `display_name`, `required`, `browse`, `read`, `edit`, `add`, `delete`, `details`, `order`) VALUES
-(1, 1, 'id', 'number', 'ID', 1, 0, 0, 0, 0, 0, NULL, 1),
-(2, 1, 'name', 'text', 'Nombre', 1, 1, 1, 1, 1, 1, NULL, 2),
-(3, 1, 'email', 'text', 'Correo Electrónico', 1, 1, 1, 1, 1, 1, NULL, 3),
-(4, 1, 'password', 'password', 'Constraseña', 1, 0, 0, 1, 1, 0, NULL, 4),
-(5, 1, 'remember_token', 'text', 'Token de Recuerdo', 0, 0, 0, 0, 0, 0, NULL, 5),
-(6, 1, 'created_at', 'timestamp', 'Creado', 0, 1, 1, 0, 0, 0, NULL, 6),
-(7, 1, 'updated_at', 'timestamp', 'Actualizado', 0, 0, 0, 0, 0, 0, NULL, 7),
-(8, 1, 'avatar', 'image', 'Avatar', 0, 1, 1, 1, 1, 1, NULL, 8),
-(9, 1, 'user_belongsto_role_relationship', 'relationship', 'Rol', 0, 1, 1, 1, 1, 0, '{\"model\":\"TCG\\\\Voyager\\\\Models\\\\Role\",\"table\":\"roles\",\"type\":\"belongsTo\",\"column\":\"role_id\",\"key\":\"id\",\"label\":\"display_name\",\"pivot_table\":\"roles\",\"pivot\":0}', 10),
-(10, 1, 'user_belongstomany_role_relationship', 'relationship', 'Roles', 0, 1, 1, 1, 1, 0, '{\"model\":\"TCG\\\\Voyager\\\\Models\\\\Role\",\"table\":\"roles\",\"type\":\"belongsToMany\",\"column\":\"id\",\"key\":\"id\",\"label\":\"display_name\",\"pivot_table\":\"user_roles\",\"pivot\":\"1\",\"taggable\":\"0\"}', 11),
-(11, 1, 'settings', 'hidden', 'Settings', 0, 0, 0, 0, 0, 0, NULL, 12),
+(1, 1, 'id', 'number', 'ID', 1, 0, 0, 0, 0, 0, '{}', 1),
+(2, 1, 'name', 'text', 'Nombre', 1, 1, 1, 1, 1, 1, '{}', 2),
+(3, 1, 'email', 'text', 'Correo Electrónico', 1, 1, 1, 1, 1, 1, '{}', 3),
+(4, 1, 'password', 'password', 'Contraseña', 1, 0, 0, 1, 1, 0, '{}', 4),
+(5, 1, 'remember_token', 'text', 'Token de Recuerdo', 0, 0, 0, 0, 0, 0, '{}', 5),
+(6, 1, 'created_at', 'timestamp', 'Creado', 0, 1, 1, 0, 0, 0, '{}', 6),
+(7, 1, 'updated_at', 'timestamp', 'Actualizado', 0, 0, 0, 0, 0, 0, '{}', 7),
+(8, 1, 'avatar', 'image', 'Avatar', 0, 1, 1, 1, 1, 1, '{}', 8),
+(9, 1, 'user_belongsto_role_relationship', 'relationship', 'Rol', 0, 1, 1, 1, 1, 1, '{\"model\":\"TCG\\\\Voyager\\\\Models\\\\Role\",\"table\":\"roles\",\"type\":\"belongsTo\",\"column\":\"role_id\",\"key\":\"id\",\"label\":\"display_name\",\"pivot_table\":\"roles\",\"pivot\":\"0\",\"taggable\":\"0\"}', 10),
+(11, 1, 'settings', 'hidden', 'Settings', 0, 0, 0, 0, 0, 0, '{}', 12),
 (12, 2, 'id', 'number', 'ID', 1, 0, 0, 0, 0, 0, NULL, 1),
 (13, 2, 'name', 'text', 'Nombre', 1, 1, 1, 1, 1, 1, NULL, 2),
 (14, 2, 'created_at', 'timestamp', 'Creado', 0, 0, 0, 0, 0, 0, NULL, 3),
@@ -156,7 +168,31 @@ INSERT INTO `data_rows` (`id`, `data_type_id`, `field`, `type`, `display_name`, 
 (18, 3, 'created_at', 'timestamp', 'Creado', 0, 0, 0, 0, 0, 0, NULL, 3),
 (19, 3, 'updated_at', 'timestamp', 'Actualizado', 0, 0, 0, 0, 0, 0, NULL, 4),
 (20, 3, 'display_name', 'text', 'Nombre a Mostrar', 1, 1, 1, 1, 1, 1, NULL, 5),
-(21, 1, 'role_id', 'text', 'Rol', 1, 1, 1, 1, 1, 1, NULL, 9);
+(21, 1, 'role_id', 'text', 'Rol', 0, 1, 1, 1, 1, 1, '{}', 9),
+(22, 4, 'id', 'text', 'Id', 1, 0, 0, 0, 0, 0, '{}', 1),
+(23, 4, 'nombres', 'text', 'Nombres', 1, 1, 1, 1, 1, 1, '{}', 3),
+(24, 4, 'apellido_paterno', 'text', 'Apellido Paterno', 1, 1, 1, 1, 1, 1, '{}', 4),
+(25, 4, 'apellido_materno', 'text', 'Apellido Materno', 1, 1, 1, 1, 1, 1, '{}', 5),
+(26, 4, 'modalidad', 'text', 'Modalidad', 1, 1, 1, 1, 1, 1, '{}', 6),
+(27, 4, 'dni', 'text', 'Dni', 1, 1, 1, 1, 1, 1, '{\"validation\":{\"rule\":\"digits:8\"}}', 7),
+(28, 4, 'periodo_egreso', 'text', 'Periodo Egreso', 1, 1, 1, 1, 1, 1, '{}', 8),
+(29, 4, 'celular', 'text', 'Celular', 1, 1, 1, 1, 1, 1, '{}', 9),
+(31, 4, 'user_id', 'text', 'Usuario', 1, 1, 1, 1, 1, 1, '{\"validation\":{\"rule\":\"required|unique:alumnos\"}}', 2),
+(32, 4, 'created_at', 'timestamp', 'Created At', 0, 0, 0, 0, 0, 0, '{}', 11),
+(33, 4, 'updated_at', 'timestamp', 'Updated At', 0, 0, 0, 0, 0, 0, '{}', 12),
+(34, 4, 'alumno_belongsto_user_relationship', 'relationship', 'Usuario', 0, 1, 1, 1, 1, 1, '{\"scope\":\"alumno\",\"model\":\"App\\\\Models\\\\User\",\"table\":\"users\",\"type\":\"belongsTo\",\"column\":\"user_id\",\"key\":\"id\",\"label\":\"name\",\"pivot_table\":\"alumnos\",\"pivot\":\"0\",\"taggable\":\"0\"}', 13),
+(35, 1, 'email_verified_at', 'timestamp', 'Email Verified At', 0, 0, 0, 0, 0, 0, '{}', 6),
+(46, 6, 'id', 'text', 'Id', 1, 0, 0, 0, 0, 0, '{}', 1),
+(47, 6, 'nombres', 'text', 'Nombres', 1, 1, 1, 1, 1, 1, '{}', 3),
+(48, 6, 'apellido_paterno', 'text', 'Apellido Paterno', 1, 1, 1, 1, 1, 1, '{}', 4),
+(49, 6, 'apellido_materno', 'text', 'Apellido Materno', 1, 1, 1, 1, 1, 1, '{}', 5),
+(50, 6, 'filial', 'text', 'Filial', 1, 1, 1, 1, 1, 1, '{}', 6),
+(51, 6, 'facultad', 'text', 'Facultad', 1, 1, 1, 1, 1, 1, '{}', 7),
+(52, 6, 'escuela', 'text', 'Escuela', 1, 1, 1, 1, 1, 1, '{}', 8),
+(53, 6, 'user_id', 'text', 'Usuario', 1, 1, 1, 1, 1, 1, '{\"validation\":{\"rule\":\"required|unique:asesores\"}}', 2),
+(54, 6, 'created_at', 'timestamp', 'Created At', 0, 0, 0, 0, 0, 0, '{}', 9),
+(55, 6, 'updated_at', 'timestamp', 'Updated At', 0, 0, 0, 0, 0, 0, '{}', 10),
+(56, 6, 'asesore_belongsto_user_relationship', 'relationship', 'Usuario', 0, 1, 1, 1, 1, 1, '{\"scope\":\"asesor\",\"model\":\"App\\\\Models\\\\User\",\"table\":\"users\",\"type\":\"belongsTo\",\"column\":\"user_id\",\"key\":\"id\",\"label\":\"name\",\"pivot_table\":\"alumnos\",\"pivot\":\"0\",\"taggable\":\"0\"}', 11);
 
 -- --------------------------------------------------------
 
@@ -187,9 +223,11 @@ CREATE TABLE `data_types` (
 --
 
 INSERT INTO `data_types` (`id`, `name`, `slug`, `display_name_singular`, `display_name_plural`, `icon`, `model_name`, `policy_name`, `controller`, `description`, `generate_permissions`, `server_side`, `details`, `created_at`, `updated_at`) VALUES
-(1, 'users', 'users', 'Usuario', 'Usuarios', 'voyager-person', 'TCG\\Voyager\\Models\\User', 'TCG\\Voyager\\Policies\\UserPolicy', 'TCG\\Voyager\\Http\\Controllers\\VoyagerUserController', '', 1, 0, NULL, '2020-12-09 22:20:53', '2020-12-09 22:20:53'),
+(1, 'users', 'users', 'Usuario', 'Usuarios', 'voyager-person', 'TCG\\Voyager\\Models\\User', 'TCG\\Voyager\\Policies\\UserPolicy', 'TCG\\Voyager\\Http\\Controllers\\VoyagerUserController', NULL, 1, 0, '{\"order_column\":null,\"order_display_column\":null,\"order_direction\":\"desc\",\"default_search_key\":null,\"scope\":null}', '2020-12-09 22:20:53', '2020-12-09 23:03:30'),
 (2, 'menus', 'menus', 'Menú', 'Menús', 'voyager-list', 'TCG\\Voyager\\Models\\Menu', NULL, '', '', 1, 0, NULL, '2020-12-09 22:20:53', '2020-12-09 22:20:53'),
-(3, 'roles', 'roles', 'Rol', 'Roles', 'voyager-lock', 'TCG\\Voyager\\Models\\Role', NULL, 'TCG\\Voyager\\Http\\Controllers\\VoyagerRoleController', '', 1, 0, NULL, '2020-12-09 22:20:53', '2020-12-09 22:20:53');
+(3, 'roles', 'roles', 'Rol', 'Roles', 'voyager-lock', 'TCG\\Voyager\\Models\\Role', NULL, 'TCG\\Voyager\\Http\\Controllers\\VoyagerRoleController', '', 1, 0, NULL, '2020-12-09 22:20:53', '2020-12-09 22:20:53'),
+(4, 'alumnos', 'alumnos', 'Alumno', 'Alumnos', 'voyager-people', 'App\\Models\\Alumno', NULL, NULL, NULL, 1, 0, '{\"order_column\":null,\"order_display_column\":null,\"order_direction\":\"asc\",\"default_search_key\":null,\"scope\":null}', '2020-12-09 22:36:46', '2020-12-09 23:10:37'),
+(6, 'asesores', 'asesores', 'Asesor', 'Asesores', 'voyager-archive', 'App\\Models\\Asesor', NULL, NULL, NULL, 1, 0, '{\"order_column\":null,\"order_display_column\":null,\"order_direction\":\"asc\",\"default_search_key\":null,\"scope\":null}', '2020-12-09 23:19:42', '2020-12-09 23:24:56');
 
 -- --------------------------------------------------------
 
@@ -254,17 +292,17 @@ CREATE TABLE `menu_items` (
 --
 
 INSERT INTO `menu_items` (`id`, `menu_id`, `title`, `url`, `target`, `icon_class`, `color`, `parent_id`, `order`, `created_at`, `updated_at`, `route`, `parameters`) VALUES
-(1, 1, 'Tablero', '', '_self', 'voyager-boat', NULL, NULL, 1, '2020-12-09 22:20:55', '2020-12-09 22:20:55', 'voyager.dashboard', NULL),
-(2, 1, 'Multimedia', '', '_self', 'voyager-images', NULL, NULL, 5, '2020-12-09 22:20:55', '2020-12-09 22:20:55', 'voyager.media.index', NULL),
-(3, 1, 'Usuarios', '', '_self', 'voyager-person', NULL, NULL, 3, '2020-12-09 22:20:55', '2020-12-09 22:20:55', 'voyager.users.index', NULL),
-(4, 1, 'Roles', '', '_self', 'voyager-lock', NULL, NULL, 2, '2020-12-09 22:20:55', '2020-12-09 22:20:55', 'voyager.roles.index', NULL),
-(5, 1, 'Herramientas', '', '_self', 'voyager-tools', NULL, NULL, 9, '2020-12-09 22:20:55', '2020-12-09 22:20:55', NULL, NULL),
-(6, 1, 'Diseñador de Menús', '', '_self', 'voyager-list', NULL, 5, 10, '2020-12-09 22:20:55', '2020-12-09 22:20:55', 'voyager.menus.index', NULL),
-(7, 1, 'Base de Datos', '', '_self', 'voyager-data', NULL, 5, 11, '2020-12-09 22:20:55', '2020-12-09 22:20:55', 'voyager.database.index', NULL),
-(8, 1, 'Compás', '', '_self', 'voyager-compass', NULL, 5, 12, '2020-12-09 22:20:55', '2020-12-09 22:20:55', 'voyager.compass.index', NULL),
-(9, 1, 'BREAD', '', '_self', 'voyager-bread', NULL, 5, 13, '2020-12-09 22:20:55', '2020-12-09 22:20:55', 'voyager.bread.index', NULL),
-(10, 1, 'Parámetros', '', '_self', 'voyager-settings', NULL, NULL, 14, '2020-12-09 22:20:55', '2020-12-09 22:20:55', 'voyager.settings.index', NULL),
-(11, 1, 'Hooks', '', '_self', 'voyager-hook', NULL, NULL, 13, '2020-12-09 22:21:02', '2020-12-09 22:21:02', 'voyager.hooks', NULL);
+(2, 1, 'Multimedia', '', '_self', 'voyager-images', NULL, NULL, 6, '2020-12-09 22:20:55', '2020-12-09 23:27:13', 'voyager.media.index', NULL),
+(3, 1, 'Usuarios', '', '_self', 'voyager-person', NULL, NULL, 2, '2020-12-09 22:20:55', '2020-12-09 23:26:58', 'voyager.users.index', NULL),
+(4, 1, 'Roles', '', '_self', 'voyager-lock', NULL, NULL, 1, '2020-12-09 22:20:55', '2020-12-09 23:26:58', 'voyager.roles.index', NULL),
+(5, 1, 'Herramientas', '', '_self', 'voyager-tools', NULL, NULL, 5, '2020-12-09 22:20:55', '2020-12-09 23:27:13', NULL, NULL),
+(6, 1, 'Diseñador de Menús', '', '_self', 'voyager-list', NULL, 5, 1, '2020-12-09 22:20:55', '2020-12-09 23:26:59', 'voyager.menus.index', NULL),
+(7, 1, 'Base de Datos', '', '_self', 'voyager-data', NULL, 5, 2, '2020-12-09 22:20:55', '2020-12-09 23:26:59', 'voyager.database.index', NULL),
+(8, 1, 'Compás', '', '_self', 'voyager-compass', NULL, 5, 3, '2020-12-09 22:20:55', '2020-12-09 23:26:59', 'voyager.compass.index', NULL),
+(9, 1, 'BREAD', '', '_self', 'voyager-bread', NULL, 5, 4, '2020-12-09 22:20:55', '2020-12-09 23:26:59', 'voyager.bread.index', NULL),
+(10, 1, 'Parámetros', '', '_self', 'voyager-settings', NULL, NULL, 7, '2020-12-09 22:20:55', '2020-12-09 23:27:02', 'voyager.settings.index', NULL),
+(12, 1, 'Alumnos', '', '_self', 'voyager-people', NULL, NULL, 4, '2020-12-09 22:36:46', '2020-12-09 23:27:02', 'voyager.alumnos.index', NULL),
+(14, 1, 'Asesores', '', '_self', 'voyager-archive', NULL, NULL, 3, '2020-12-09 23:19:42', '2020-12-09 23:27:01', 'voyager.asesores.index', NULL);
 
 -- --------------------------------------------------------
 
@@ -367,7 +405,17 @@ INSERT INTO `permissions` (`id`, `key`, `table_name`, `created_at`, `updated_at`
 (23, 'edit_settings', 'settings', '2020-12-09 22:20:58', '2020-12-09 22:20:58'),
 (24, 'add_settings', 'settings', '2020-12-09 22:20:58', '2020-12-09 22:20:58'),
 (25, 'delete_settings', 'settings', '2020-12-09 22:20:58', '2020-12-09 22:20:58'),
-(26, 'browse_hooks', NULL, '2020-12-09 22:21:02', '2020-12-09 22:21:02');
+(26, 'browse_hooks', NULL, '2020-12-09 22:21:02', '2020-12-09 22:21:02'),
+(27, 'browse_alumnos', 'alumnos', '2020-12-09 22:36:46', '2020-12-09 22:36:46'),
+(28, 'read_alumnos', 'alumnos', '2020-12-09 22:36:46', '2020-12-09 22:36:46'),
+(29, 'edit_alumnos', 'alumnos', '2020-12-09 22:36:46', '2020-12-09 22:36:46'),
+(30, 'add_alumnos', 'alumnos', '2020-12-09 22:36:46', '2020-12-09 22:36:46'),
+(31, 'delete_alumnos', 'alumnos', '2020-12-09 22:36:46', '2020-12-09 22:36:46'),
+(37, 'browse_asesores', 'asesores', '2020-12-09 23:19:42', '2020-12-09 23:19:42'),
+(38, 'read_asesores', 'asesores', '2020-12-09 23:19:42', '2020-12-09 23:19:42'),
+(39, 'edit_asesores', 'asesores', '2020-12-09 23:19:42', '2020-12-09 23:19:42'),
+(40, 'add_asesores', 'asesores', '2020-12-09 23:19:42', '2020-12-09 23:19:42'),
+(41, 'delete_asesores', 'asesores', '2020-12-09 23:19:42', '2020-12-09 23:19:42');
 
 -- --------------------------------------------------------
 
@@ -410,7 +458,17 @@ INSERT INTO `permission_role` (`permission_id`, `role_id`) VALUES
 (23, 1),
 (24, 1),
 (25, 1),
-(26, 1);
+(26, 1),
+(27, 1),
+(28, 1),
+(29, 1),
+(30, 1),
+(31, 1),
+(37, 1),
+(38, 1),
+(39, 1),
+(40, 1),
+(41, 1);
 
 -- --------------------------------------------------------
 
@@ -432,7 +490,8 @@ CREATE TABLE `roles` (
 
 INSERT INTO `roles` (`id`, `name`, `display_name`, `created_at`, `updated_at`) VALUES
 (1, 'admin', 'Administrador', '2020-12-09 22:20:56', '2020-12-09 22:20:56'),
-(2, 'user', 'Usuario Normal', '2020-12-09 22:20:56', '2020-12-09 22:20:56');
+(3, 'Alumno', 'Alumno', '2020-12-09 22:49:20', '2020-12-09 22:49:20'),
+(4, 'Asesor', 'Asesor', '2020-12-09 22:49:27', '2020-12-09 22:49:27');
 
 -- --------------------------------------------------------
 
@@ -509,7 +568,9 @@ CREATE TABLE `users` (
 --
 
 INSERT INTO `users` (`id`, `role_id`, `name`, `email`, `avatar`, `email_verified_at`, `password`, `remember_token`, `settings`, `created_at`, `updated_at`) VALUES
-(1, 1, 'admin', 'admin@admin.com', 'users/default.png', NULL, '$2y$10$LkclMxOUV6hwMmzFCtCs..THuxo7O/jezNUHkrZQwchBoFCu3/Sqi', NULL, NULL, '2020-12-09 22:21:36', '2020-12-09 22:21:36');
+(1, 1, 'admin', 'admin@admin.com', 'users/default.png', NULL, '$2y$10$LkclMxOUV6hwMmzFCtCs..THuxo7O/jezNUHkrZQwchBoFCu3/Sqi', NULL, NULL, '2020-12-09 22:21:36', '2020-12-09 22:21:36'),
+(2, 3, 'user alumno', 'alumno@hotmail.com', 'users/default.png', NULL, '$2y$10$wS5SCRtVMBlcjeIZizkUT.iqzETB.IP/J6ByOfpAC3uszIHIwcWfu', NULL, NULL, '2020-12-09 23:04:10', '2020-12-09 23:04:10'),
+(3, 4, 'user asesor', 'asesor@hotmail.com', 'users/default.png', NULL, '$2y$10$qF6vquw25779x7ByfBN2..aUfJRD1mbIjmDhoWN7QgpjxoTw0Tilu', NULL, NULL, '2020-12-09 23:04:29', '2020-12-09 23:04:29');
 
 -- --------------------------------------------------------
 
@@ -662,13 +723,13 @@ ALTER TABLE `user_roles`
 -- AUTO_INCREMENT de la tabla `alumnos`
 --
 ALTER TABLE `alumnos`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 
 --
 -- AUTO_INCREMENT de la tabla `asesores`
 --
 ALTER TABLE `asesores`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 
 --
 -- AUTO_INCREMENT de la tabla `cuestionario1`
@@ -686,13 +747,13 @@ ALTER TABLE `cuestionario2`
 -- AUTO_INCREMENT de la tabla `data_rows`
 --
 ALTER TABLE `data_rows`
-  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=22;
+  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=57;
 
 --
 -- AUTO_INCREMENT de la tabla `data_types`
 --
 ALTER TABLE `data_types`
-  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
 
 --
 -- AUTO_INCREMENT de la tabla `failed_jobs`
@@ -710,7 +771,7 @@ ALTER TABLE `menus`
 -- AUTO_INCREMENT de la tabla `menu_items`
 --
 ALTER TABLE `menu_items`
-  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=12;
+  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=15;
 
 --
 -- AUTO_INCREMENT de la tabla `migrations`
@@ -722,13 +783,13 @@ ALTER TABLE `migrations`
 -- AUTO_INCREMENT de la tabla `permissions`
 --
 ALTER TABLE `permissions`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=27;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=42;
 
 --
 -- AUTO_INCREMENT de la tabla `roles`
 --
 ALTER TABLE `roles`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 
 --
 -- AUTO_INCREMENT de la tabla `settings`
@@ -746,7 +807,7 @@ ALTER TABLE `translations`
 -- AUTO_INCREMENT de la tabla `users`
 --
 ALTER TABLE `users`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 
 --
 -- Restricciones para tablas volcadas

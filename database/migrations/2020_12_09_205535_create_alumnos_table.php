@@ -22,7 +22,6 @@ class CreateAlumnosTable extends Migration
             $table->char('dni', 8);
             $table->string('periodo_egreso');
             $table->string('celular');
-            $table->string('email');
 
             $table->unsignedBigInteger('user_id');
             $table->foreign('user_id')->references('id')->on('users');
