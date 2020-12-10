@@ -50,4 +50,9 @@ class User extends \TCG\Voyager\Models\User
     {
         return $query->where('role_id', 4);
     }
+
+    public function estudiante()
+    {
+        return $this->hasOne('App\Models\Alumno');
+    }
 }
