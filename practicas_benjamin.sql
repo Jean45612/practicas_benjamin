@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 10-12-2020 a las 01:34:31
+-- Tiempo de generación: 10-12-2020 a las 01:42:26
 -- Versión del servidor: 10.4.13-MariaDB
 -- Versión de PHP: 7.4.7
 
@@ -202,16 +202,17 @@ INSERT INTO `data_rows` (`id`, `data_type_id`, `field`, `type`, `display_name`, 
 (56, 6, 'asesore_belongsto_user_relationship', 'relationship', 'Usuario', 0, 1, 1, 1, 1, 1, '{\"scope\":\"asesor\",\"model\":\"App\\\\Models\\\\User\",\"table\":\"users\",\"type\":\"belongsTo\",\"column\":\"user_id\",\"key\":\"id\",\"label\":\"name\",\"pivot_table\":\"alumnos\",\"pivot\":\"0\",\"taggable\":\"0\"}', 11),
 (57, 7, 'id', 'text', 'Id', 1, 0, 0, 0, 0, 0, '{}', 1),
 (58, 7, 'razon_social', 'text', 'Razón Social', 1, 1, 1, 1, 1, 1, '{}', 3),
-(59, 7, 'direccion', 'text', 'Dirección', 1, 1, 1, 1, 1, 1, '{}', 4),
-(60, 7, 'telefono_fijo', 'text', 'Telefono Fijo', 1, 1, 1, 1, 1, 1, '{}', 5),
+(59, 7, 'direccion', 'text', 'Dirección', 1, 0, 1, 1, 1, 1, '{}', 4),
+(60, 7, 'telefono_fijo', 'text', 'Telefono Fijo', 1, 0, 1, 1, 1, 1, '{}', 5),
 (61, 7, 'nombres_apellidos_encuestado', 'text', 'Nombres Apellidos Encuestado', 1, 1, 1, 1, 1, 1, '{}', 6),
-(62, 7, 'celular', 'text', 'Celular', 1, 1, 1, 1, 1, 1, '{}', 7),
-(63, 7, 'correo', 'text', 'Correo', 1, 1, 1, 1, 1, 1, '{\"validation\":{\"rule\":\"email\"}}', 8),
-(64, 7, 'cargo', 'text', 'Cargo', 1, 1, 1, 1, 1, 1, '{}', 9),
+(62, 7, 'celular', 'text', 'Celular', 1, 0, 1, 1, 1, 1, '{}', 7),
+(63, 7, 'correo', 'text', 'Correo', 1, 0, 1, 1, 1, 1, '{\"validation\":{\"rule\":\"email\"}}', 8),
+(64, 7, 'cargo', 'text', 'Cargo', 1, 0, 1, 1, 1, 1, '{}', 9),
 (65, 7, 'nombre_graduado', 'text', 'Nombre Graduado', 1, 1, 1, 1, 1, 1, '{}', 10),
 (66, 7, 'alumno_id', 'text', 'Alumno', 1, 0, 0, 0, 0, 0, '{}', 2),
 (67, 7, 'created_at', 'timestamp', 'Created At', 0, 0, 0, 0, 0, 0, '{}', 11),
-(68, 7, 'updated_at', 'timestamp', 'Updated At', 0, 0, 0, 0, 0, 0, '{}', 12);
+(68, 7, 'updated_at', 'timestamp', 'Updated At', 0, 0, 0, 0, 0, 0, '{}', 12),
+(69, 7, 'cuestionario1_belongsto_alumno_relationship', 'relationship', 'Alumno', 0, 1, 1, 1, 1, 1, '{\"model\":\"App\\\\Models\\\\Alumno\",\"table\":\"alumnos\",\"type\":\"belongsTo\",\"column\":\"alumno_id\",\"key\":\"id\",\"label\":\"nombres\",\"pivot_table\":\"alumnos\",\"pivot\":\"0\",\"taggable\":\"0\"}', 13);
 
 -- --------------------------------------------------------
 
@@ -247,7 +248,7 @@ INSERT INTO `data_types` (`id`, `name`, `slug`, `display_name_singular`, `displa
 (3, 'roles', 'roles', 'Rol', 'Roles', 'voyager-lock', 'TCG\\Voyager\\Models\\Role', NULL, 'TCG\\Voyager\\Http\\Controllers\\VoyagerRoleController', '', 1, 0, NULL, '2020-12-09 22:20:53', '2020-12-09 22:20:53'),
 (4, 'alumnos', 'alumnos', 'Alumno', 'Alumnos', 'voyager-people', 'App\\Models\\Alumno', NULL, NULL, NULL, 1, 0, '{\"order_column\":null,\"order_display_column\":null,\"order_direction\":\"asc\",\"default_search_key\":null,\"scope\":null}', '2020-12-09 22:36:46', '2020-12-09 23:10:37'),
 (6, 'asesores', 'asesores', 'Asesor', 'Asesores', 'voyager-archive', 'App\\Models\\Asesor', NULL, NULL, NULL, 1, 0, '{\"order_column\":null,\"order_display_column\":null,\"order_direction\":\"asc\",\"default_search_key\":null,\"scope\":null}', '2020-12-09 23:19:42', '2020-12-09 23:24:56'),
-(7, 'cuestionario1', 'cuestionario1', 'Cuestionario 1', 'Cuestionarios 1', 'voyager-documentation', 'App\\Models\\Cuestionario1', NULL, '\\App\\Http\\Controllers\\Cuestionario1Controller', NULL, 1, 0, '{\"order_column\":null,\"order_display_column\":null,\"order_direction\":\"asc\",\"default_search_key\":null,\"scope\":null}', '2020-12-09 23:34:09', '2020-12-09 23:59:03');
+(7, 'cuestionario1', 'cuestionario1', 'Cuestionario 1', 'Cuestionarios 1', 'voyager-documentation', 'App\\Models\\Cuestionario1', NULL, '\\App\\Http\\Controllers\\Cuestionario1Controller', NULL, 1, 0, '{\"order_column\":null,\"order_display_column\":null,\"order_direction\":\"asc\",\"default_search_key\":null,\"scope\":null}', '2020-12-09 23:34:09', '2020-12-10 00:41:14');
 
 -- --------------------------------------------------------
 
@@ -461,6 +462,7 @@ CREATE TABLE `permission_role` (
 INSERT INTO `permission_role` (`permission_id`, `role_id`) VALUES
 (1, 1),
 (1, 3),
+(1, 4),
 (2, 1),
 (3, 1),
 (4, 1),
@@ -498,12 +500,16 @@ INSERT INTO `permission_role` (`permission_id`, `role_id`) VALUES
 (41, 1),
 (42, 1),
 (42, 3),
+(42, 4),
 (43, 1),
 (43, 3),
+(43, 4),
 (44, 1),
 (44, 3),
+(44, 4),
 (45, 1),
 (45, 3),
+(45, 4),
 (46, 1),
 (46, 3);
 
@@ -606,7 +612,7 @@ CREATE TABLE `users` (
 
 INSERT INTO `users` (`id`, `role_id`, `name`, `email`, `avatar`, `email_verified_at`, `password`, `remember_token`, `settings`, `created_at`, `updated_at`) VALUES
 (1, 1, 'admin', 'admin@admin.com', 'users/default.png', NULL, '$2y$10$LkclMxOUV6hwMmzFCtCs..THuxo7O/jezNUHkrZQwchBoFCu3/Sqi', NULL, NULL, '2020-12-09 22:21:36', '2020-12-09 22:21:36'),
-(3, 4, 'user asesor', 'asesor@hotmail.com', 'users/default.png', NULL, '$2y$10$qF6vquw25779x7ByfBN2..aUfJRD1mbIjmDhoWN7QgpjxoTw0Tilu', NULL, NULL, '2020-12-09 23:04:29', '2020-12-09 23:04:29'),
+(3, 4, 'user asesor', 'asesor@hotmail.com', 'users/default.png', NULL, '$2y$10$GEubMyDMT.vreOf8mPSCxO4UUNkwehetZnEsx4Hn0wWwyiUcZVeMC', NULL, NULL, '2020-12-09 23:04:29', '2020-12-10 00:41:46'),
 (4, 3, 'user alumno', 'alumno@hotmail.com', 'users/default.png', NULL, '$2y$10$cUI5.oWER7bAq5GHfvZcNuVNH2Ke02KQ7zRFjezDnzxZFs.HxGVOS', NULL, NULL, '2020-12-09 23:50:30', '2020-12-09 23:50:30');
 
 -- --------------------------------------------------------
@@ -784,7 +790,7 @@ ALTER TABLE `cuestionario2`
 -- AUTO_INCREMENT de la tabla `data_rows`
 --
 ALTER TABLE `data_rows`
-  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=69;
+  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=70;
 
 --
 -- AUTO_INCREMENT de la tabla `data_types`
